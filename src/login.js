@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './firebase';
+import { Link } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -14,6 +15,7 @@ function Login() {
       await signInWithEmailAndPassword(auth, email, password);
       alert("Login successful");
       // คุณสามารถเพิ่มการนำทางไปยังหน้าผู้ดูแลระบบที่นี่
+      <Link to="/HomePage"></Link>
     } catch (error) {
       setError(error.message);
     }
