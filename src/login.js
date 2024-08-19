@@ -1,4 +1,3 @@
-// src/Login.js
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './firebase';
@@ -12,12 +11,13 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      alert("Login Successful");
-      navigate('/HomePage');
-    } catch (error) {
-      alert("Login Failed");
+    if (email === 'admin@gmail.com' && password === 'admin1234') {
+        await signInWithEmailAndPassword(auth, email, password);
+        alert("Login Successful");
+        navigate('/HomePage');
+    } 
+    else {
+      alert("Invalid username or password");
     }
   };
 
